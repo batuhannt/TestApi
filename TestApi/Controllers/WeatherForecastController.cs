@@ -21,7 +21,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public string Get()
     {
-        return "Batuhan hoşgeldin.";
+        return "Batuhan hoşgeldin. Nasılsın?";
     }
 }
 
