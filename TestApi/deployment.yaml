@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-dotnet
+  template:
+    metadata:
+      labels:
+        app: my-dotnet
+    spec:
+      containers:
+        - name: my-dotnet-container
+          image: batuhannt/my_image
+          ports:
+            - containerPort: 80
+        
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnet-service
+spec:
+  selector:
+    app: my-dotnet
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
